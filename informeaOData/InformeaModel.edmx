@@ -1,0 +1,602 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="InformeaCacheModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'InformeaCache.dbo.contacts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="contacts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="country" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="prefix" Type="nvarchar" MaxLength="20" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="255" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="64" />
+          <Property Name="position" Type="nvarchar" MaxLength="255" />
+          <Property Name="institution" Type="nvarchar" MaxLength="255" />
+          <Property Name="department" Type="nvarchar" MaxLength="255" />
+          <Property Name="address" Type="nvarchar" MaxLength="255" />
+          <Property Name="email" Type="nvarchar" MaxLength="64" />
+          <Property Name="phoneNumber" Type="nvarchar" MaxLength="64" />
+          <Property Name="fax" Type="nvarchar" MaxLength="64" />
+          <Property Name="primary" Type="tinyint" Nullable="false" />
+          <Property Name="updated" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'InformeaCache.dbo.contacts_treaties' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="contacts_treaties">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="44" Nullable="false" />
+          <Property Name="contact_id" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="treaty" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'InformeaCache.dbo.country_reports' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="country_reports">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="treaty" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="country" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="submission" Type="datetime" />
+          <Property Name="url" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="updated" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'InformeaCache.dbo.country_reports_title' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="country_reports_title">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="14" Nullable="false" />
+          <Property Name="country_report_id" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="language" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'InformeaCache.dbo.meetings' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="meetings">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="treaty" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="url" Type="nvarchar" MaxLength="255" />
+          <Property Name="start" Type="datetime" Nullable="false" />
+          <Property Name="end" Type="datetime" />
+          <Property Name="repetition" Type="nvarchar" MaxLength="50" />
+          <Property Name="kind" Type="nvarchar" MaxLength="50" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" />
+          <Property Name="access" Type="nvarchar" MaxLength="50" />
+          <Property Name="status" Type="nvarchar" MaxLength="50" />
+          <Property Name="imageUrl" Type="nvarchar" MaxLength="255" />
+          <Property Name="imageCopyright" Type="nvarchar" MaxLength="255" />
+          <Property Name="location" Type="nvarchar" MaxLength="255" />
+          <Property Name="city" Type="nvarchar" MaxLength="64" />
+          <Property Name="country" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="latitude" Type="float" />
+          <Property Name="longitude" Type="float" />
+          <Property Name="updated" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'InformeaCache.dbo.meetings_description' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="meetings_description">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="14" Nullable="false" />
+          <Property Name="meeting_id" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="language" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="description" Type="ntext" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'InformeaCache.dbo.meetings_title' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="meetings_title">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="14" Nullable="false" />
+          <Property Name="meeting_id" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="language" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="400" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'InformeaCache.dbo.sites' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="sites">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="type" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="country" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="treaty" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="url" Type="nvarchar" MaxLength="255" />
+          <Property Name="latitude" Type="float" />
+          <Property Name="longitude" Type="float" />
+          <Property Name="updated" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'InformeaCache.dbo.sites_name' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="sites_name">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="14" Nullable="false" />
+          <Property Name="site_id" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="language" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="InformeaCacheModelStoreContainer">
+          <EntitySet Name="contacts" EntityType="Self.contacts" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [contacts].[id] AS [id], 
+    [contacts].[country] AS [country], 
+    [contacts].[prefix] AS [prefix], 
+    [contacts].[firstName] AS [firstName], 
+    [contacts].[lastName] AS [lastName], 
+    [contacts].[position] AS [position], 
+    [contacts].[institution] AS [institution], 
+    [contacts].[department] AS [department], 
+    [contacts].[address] AS [address], 
+    [contacts].[email] AS [email], 
+    [contacts].[phoneNumber] AS [phoneNumber], 
+    [contacts].[fax] AS [fax], 
+    [contacts].[primary] AS [primary], 
+    [contacts].[updated] AS [updated]
+    FROM [dbo].[contacts] AS [contacts]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="contacts_treaties" EntityType="Self.contacts_treaties" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [contacts_treaties].[id] AS [id], 
+    [contacts_treaties].[contact_id] AS [contact_id], 
+    [contacts_treaties].[treaty] AS [treaty]
+    FROM [dbo].[contacts_treaties] AS [contacts_treaties]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="country_reports" EntityType="Self.country_reports" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [country_reports].[id] AS [id], 
+    [country_reports].[treaty] AS [treaty], 
+    [country_reports].[country] AS [country], 
+    [country_reports].[submission] AS [submission], 
+    [country_reports].[url] AS [url], 
+    [country_reports].[updated] AS [updated]
+    FROM [dbo].[country_reports] AS [country_reports]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="country_reports_title" EntityType="Self.country_reports_title" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [country_reports_title].[id] AS [id], 
+    [country_reports_title].[country_report_id] AS [country_report_id], 
+    [country_reports_title].[language] AS [language], 
+    [country_reports_title].[title] AS [title]
+    FROM [dbo].[country_reports_title] AS [country_reports_title]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="meetings" EntityType="Self.meetings" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [meetings].[id] AS [id], 
+    [meetings].[treaty] AS [treaty], 
+    [meetings].[url] AS [url], 
+    [meetings].[start] AS [start], 
+    [meetings].[end] AS [end], 
+    [meetings].[repetition] AS [repetition], 
+    [meetings].[kind] AS [kind], 
+    [meetings].[type] AS [type], 
+    [meetings].[access] AS [access], 
+    [meetings].[status] AS [status], 
+    [meetings].[imageUrl] AS [imageUrl], 
+    [meetings].[imageCopyright] AS [imageCopyright], 
+    [meetings].[location] AS [location], 
+    [meetings].[city] AS [city], 
+    [meetings].[country] AS [country], 
+    [meetings].[latitude] AS [latitude], 
+    [meetings].[longitude] AS [longitude], 
+    [meetings].[updated] AS [updated]
+    FROM [dbo].[meetings] AS [meetings]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="meetings_description" EntityType="Self.meetings_description" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [meetings_description].[id] AS [id], 
+    [meetings_description].[meeting_id] AS [meeting_id], 
+    [meetings_description].[language] AS [language], 
+    [meetings_description].[description] AS [description]
+    FROM [dbo].[meetings_description] AS [meetings_description]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="meetings_title" EntityType="Self.meetings_title" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [meetings_title].[id] AS [id], 
+    [meetings_title].[meeting_id] AS [meeting_id], 
+    [meetings_title].[language] AS [language], 
+    [meetings_title].[title] AS [title]
+    FROM [dbo].[meetings_title] AS [meetings_title]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="sites" EntityType="Self.sites" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [sites].[id] AS [id], 
+    [sites].[type] AS [type], 
+    [sites].[country] AS [country], 
+    [sites].[treaty] AS [treaty], 
+    [sites].[name] AS [name], 
+    [sites].[url] AS [url], 
+    [sites].[latitude] AS [latitude], 
+    [sites].[longitude] AS [longitude], 
+    [sites].[updated] AS [updated]
+    FROM [dbo].[sites] AS [sites]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="sites_name" EntityType="Self.sites_name" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [sites_name].[id] AS [id], 
+    [sites_name].[site_id] AS [site_id], 
+    [sites_name].[language] AS [language], 
+    [sites_name].[name] AS [name]
+    FROM [dbo].[sites_name] AS [sites_name]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InformeaCacheModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="contact">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="country" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="prefix" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="firstName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="lastName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="position" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="institution" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="department" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="phoneNumber" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="fax" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="primary" Type="Byte" Nullable="false" />
+          <Property Name="updated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="treaties" Relationship="InformeaCacheModel.contactcontacts_treaties" FromRole="contact" ToRole="contacts_treaties" />
+          <Property Name="type" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="contacts_treaties">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="44" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="contact_id" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="treaty" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="country_reports">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="treaty" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="country" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="submission" Type="DateTime" Precision="3" />
+          <Property Name="url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="updated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="report_title" Relationship="InformeaCacheModel.country_reportscountry_reports_title" FromRole="country_reports" ToRole="country_reports_title" />
+          <NavigationProperty Name="files" />
+        </EntityType>
+        <EntityType Name="country_reports_title">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="14" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="country_report_id" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="language" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="meeting">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="treaty" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="start" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="end" Type="DateTime" Precision="3" />
+          <Property Name="repetition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kind" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="access" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="imageUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="imageCopyright" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="location" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="city" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="country" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="latitude" Type="Double" />
+          <Property Name="longitude" Type="Double" />
+          <Property Name="updated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="title" Relationship="InformeaCacheModel.meetingmeetings_title" FromRole="meeting" ToRole="meetings_title" />
+          <NavigationProperty Name="description" Relationship="InformeaCacheModel.meetingmeetings_description" FromRole="meeting" ToRole="meetings_description" />
+        </EntityType>
+        <EntityType Name="meetings_description">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="14" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="meeting_id" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="language" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="meetings_title">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="14" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="meeting_id" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="language" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="site">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="country" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="treaty" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="latitude" Type="Double" />
+          <Property Name="longitude" Type="Double" />
+          <Property Name="updated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="name" Relationship="InformeaCacheModel.sitesites_name" FromRole="site" ToRole="sites_name" />
+        </EntityType>
+        <EntityType Name="sites_name">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="14" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="site_id" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="language" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="InformeaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="contacts" EntityType="Self.contact" />
+          <EntitySet Name="contacts_treaties" EntityType="Self.contacts_treaties" />
+          <EntitySet Name="country_reports" EntityType="Self.country_reports" />
+          <EntitySet Name="country_reports_title" EntityType="Self.country_reports_title" />
+          <EntitySet Name="meetings" EntityType="Self.meeting" />
+          <EntitySet Name="meetings_description" EntityType="Self.meetings_description" />
+          <EntitySet Name="meetings_title" EntityType="Self.meetings_title" />
+          <EntitySet Name="sites" EntityType="Self.site" />
+          <EntitySet Name="sites_name" EntityType="Self.sites_name" />
+          <AssociationSet Name="contactcontacts_treaties" Association="InformeaCacheModel.contactcontacts_treaties">
+            <End Role="contact" EntitySet="contacts" />
+            <End Role="contacts_treaties" EntitySet="contacts_treaties" />
+          </AssociationSet>
+          <AssociationSet Name="meetingmeetings_title" Association="InformeaCacheModel.meetingmeetings_title">
+            <End Role="meeting" EntitySet="meetings" />
+            <End Role="meetings_title" EntitySet="meetings_title" />
+          </AssociationSet>
+          <AssociationSet Name="meetingmeetings_description" Association="InformeaCacheModel.meetingmeetings_description">
+            <End Role="meeting" EntitySet="meetings" />
+            <End Role="meetings_description" EntitySet="meetings_description" />
+          </AssociationSet>
+          <AssociationSet Name="country_reportscountry_reports_title" Association="InformeaCacheModel.country_reportscountry_reports_title">
+            <End Role="country_reports" EntitySet="country_reports" />
+            <End Role="country_reports_title" EntitySet="country_reports_title" />
+          </AssociationSet>
+          <AssociationSet Name="sitesites_name" Association="InformeaCacheModel.sitesites_name">
+            <End Role="site" EntitySet="sites" />
+            <End Role="sites_name" EntitySet="sites_name" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="contactcontacts_treaties">
+          <End Type="InformeaCacheModel.contact" Role="contact" Multiplicity="1" />
+          <End Type="InformeaCacheModel.contacts_treaties" Role="contacts_treaties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contact">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="contacts_treaties">
+              <PropertyRef Name="contact_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="meetingmeetings_title">
+          <End Type="InformeaCacheModel.meeting" Role="meeting" Multiplicity="1" />
+          <End Type="InformeaCacheModel.meetings_title" Role="meetings_title" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="meeting">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="meetings_title">
+              <PropertyRef Name="meeting_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="meetingmeetings_description">
+          <End Type="InformeaCacheModel.meeting" Role="meeting" Multiplicity="1" />
+          <End Type="InformeaCacheModel.meetings_description" Role="meetings_description" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="meeting">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="meetings_description">
+              <PropertyRef Name="meeting_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="country_reportscountry_reports_title">
+          <End Type="InformeaCacheModel.country_reports" Role="country_reports" Multiplicity="1" />
+          <End Type="InformeaCacheModel.country_reports_title" Role="country_reports_title" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country_reports">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="country_reports_title">
+              <PropertyRef Name="country_report_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="sitesites_name">
+          <End Type="InformeaCacheModel.site" Role="site" Multiplicity="1" />
+          <End Type="InformeaCacheModel.sites_name" Role="sites_name" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="site">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sites_name">
+              <PropertyRef Name="site_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="InformeaCacheModelStoreContainer" CdmEntityContainer="InformeaEntities">
+          <EntitySetMapping Name="contacts">
+            <EntityTypeMapping TypeName="InformeaCacheModel.contact">
+              <MappingFragment StoreEntitySet="contacts">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="prefix" ColumnName="prefix" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="institution" ColumnName="institution" />
+                <ScalarProperty Name="department" ColumnName="department" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+                <ScalarProperty Name="fax" ColumnName="fax" />
+                <ScalarProperty Name="primary" ColumnName="primary" />
+                <ScalarProperty Name="updated" ColumnName="updated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contacts_treaties">
+            <EntityTypeMapping TypeName="InformeaCacheModel.contacts_treaties">
+              <MappingFragment StoreEntitySet="contacts_treaties">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="contact_id" ColumnName="contact_id" />
+                <ScalarProperty Name="treaty" ColumnName="treaty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="country_reports">
+            <EntityTypeMapping TypeName="InformeaCacheModel.country_reports">
+              <MappingFragment StoreEntitySet="country_reports">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="treaty" ColumnName="treaty" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="submission" ColumnName="submission" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="updated" ColumnName="updated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="country_reports_title">
+            <EntityTypeMapping TypeName="InformeaCacheModel.country_reports_title">
+              <MappingFragment StoreEntitySet="country_reports_title">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="country_report_id" ColumnName="country_report_id" />
+                <ScalarProperty Name="language" ColumnName="language" />
+                <ScalarProperty Name="title" ColumnName="title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="meetings">
+            <EntityTypeMapping TypeName="InformeaCacheModel.meeting">
+              <MappingFragment StoreEntitySet="meetings">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="treaty" ColumnName="treaty" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="start" ColumnName="start" />
+                <ScalarProperty Name="end" ColumnName="end" />
+                <ScalarProperty Name="repetition" ColumnName="repetition" />
+                <ScalarProperty Name="kind" ColumnName="kind" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="access" ColumnName="access" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="imageUrl" ColumnName="imageUrl" />
+                <ScalarProperty Name="imageCopyright" ColumnName="imageCopyright" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="updated" ColumnName="updated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="meetings_description">
+            <EntityTypeMapping TypeName="InformeaCacheModel.meetings_description">
+              <MappingFragment StoreEntitySet="meetings_description">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="meeting_id" ColumnName="meeting_id" />
+                <ScalarProperty Name="language" ColumnName="language" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="meetings_title">
+            <EntityTypeMapping TypeName="InformeaCacheModel.meetings_title">
+              <MappingFragment StoreEntitySet="meetings_title">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="meeting_id" ColumnName="meeting_id" />
+                <ScalarProperty Name="language" ColumnName="language" />
+                <ScalarProperty Name="title" ColumnName="title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sites">
+            <EntityTypeMapping TypeName="InformeaCacheModel.site">
+              <MappingFragment StoreEntitySet="sites">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="treaty" ColumnName="treaty" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="updated" ColumnName="updated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sites_name">
+            <EntityTypeMapping TypeName="InformeaCacheModel.sites_name">
+              <MappingFragment StoreEntitySet="sites_name">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="site_id" ColumnName="site_id" />
+                <ScalarProperty Name="language" ColumnName="language" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
