@@ -12,7 +12,7 @@
         <EntityTypeShape EntityType="InformeaCacheModel.meeting" Width="1.5" PointX="4.875" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="InformeaCacheModel.meetings_description" Width="2.125" PointX="6.875" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="InformeaCacheModel.meetings_title" Width="1.5" PointX="6.875" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="InformeaCacheModel.site" Width="1.5" PointX="4.875" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="InformeaCacheModel.site" Width="1.5" PointX="4.875" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="InformeaCacheModel.sites_name" Width="1.5" PointX="7" PointY="5.875" IsExpanded="true" />
         <AssociationConnector Association="InformeaCacheModel.contactcontacts_treaties" />
         <AssociationConnector Association="InformeaCacheModel.meetingmeetings_title" />

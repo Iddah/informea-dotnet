@@ -262,7 +262,6 @@ warning 6002: The table/view 'InformeaCache.dbo.sites_name' does not have a prim
           <Property Name="primary" Type="Byte" Nullable="false" />
           <Property Name="updated" Type="DateTime" Precision="3" />
           <NavigationProperty Name="treaties" Relationship="InformeaCacheModel.contactcontacts_treaties" FromRole="contact" ToRole="contacts_treaties" />
-          <Property Name="type" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="contacts_treaties">
           <Key>
@@ -283,7 +282,6 @@ warning 6002: The table/view 'InformeaCache.dbo.sites_name' does not have a prim
           <Property Name="url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="updated" Type="DateTime" Precision="3" />
           <NavigationProperty Name="report_title" Relationship="InformeaCacheModel.country_reportscountry_reports_title" FromRole="country_reports" ToRole="country_reports_title" />
-          <NavigationProperty Name="files" />
         </EntityType>
         <EntityType Name="country_reports_title">
           <Key>
@@ -345,11 +343,12 @@ warning 6002: The table/view 'InformeaCache.dbo.sites_name' does not have a prim
           <Property Name="type" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="country" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="treaty" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="latitude" Type="Double" />
           <Property Name="longitude" Type="Double" />
           <Property Name="updated" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="name" Relationship="InformeaCacheModel.sitesites_name" FromRole="site" ToRole="sites_name" />
+          <NavigationProperty Name="site_name" Relationship="InformeaCacheModel.sitesites_name" FromRole="site" ToRole="sites_name" />
         </EntityType>
         <EntityType Name="sites_name">
           <Key>
@@ -361,34 +360,34 @@ warning 6002: The table/view 'InformeaCache.dbo.sites_name' does not have a prim
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityContainer Name="InformeaEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="contacts" EntityType="Self.contact" />
-          <EntitySet Name="contacts_treaties" EntityType="Self.contacts_treaties" />
-          <EntitySet Name="country_reports" EntityType="Self.country_reports" />
-          <EntitySet Name="country_reports_title" EntityType="Self.country_reports_title" />
-          <EntitySet Name="meetings" EntityType="Self.meeting" />
-          <EntitySet Name="meetings_description" EntityType="Self.meetings_description" />
-          <EntitySet Name="meetings_title" EntityType="Self.meetings_title" />
-          <EntitySet Name="sites" EntityType="Self.site" />
-          <EntitySet Name="sites_name" EntityType="Self.sites_name" />
+          <EntitySet Name="Contact" EntityType="Self.contact" />
+          <EntitySet Name="treaties_Contacts" EntityType="Self.contacts_treaties" />
+          <EntitySet Name="CountryReports" EntityType="Self.country_reports" />
+          <EntitySet Name="title_CountryReports" EntityType="Self.country_reports_title" />
+          <EntitySet Name="Meeting" EntityType="Self.meeting" />
+          <EntitySet Name="description_Meetings" EntityType="Self.meetings_description" />
+          <EntitySet Name="title_Meetings" EntityType="Self.meetings_title" />
+          <EntitySet Name="Sites" EntityType="Self.site" />
+          <EntitySet Name="name_Sites" EntityType="Self.sites_name" />
           <AssociationSet Name="contactcontacts_treaties" Association="InformeaCacheModel.contactcontacts_treaties">
-            <End Role="contact" EntitySet="contacts" />
-            <End Role="contacts_treaties" EntitySet="contacts_treaties" />
+            <End Role="contact" EntitySet="Contact" />
+            <End Role="contacts_treaties" EntitySet="treaties_Contacts" />
           </AssociationSet>
           <AssociationSet Name="meetingmeetings_title" Association="InformeaCacheModel.meetingmeetings_title">
-            <End Role="meeting" EntitySet="meetings" />
-            <End Role="meetings_title" EntitySet="meetings_title" />
+            <End Role="meeting" EntitySet="Meeting" />
+            <End Role="meetings_title" EntitySet="title_Meetings" />
           </AssociationSet>
           <AssociationSet Name="meetingmeetings_description" Association="InformeaCacheModel.meetingmeetings_description">
-            <End Role="meeting" EntitySet="meetings" />
-            <End Role="meetings_description" EntitySet="meetings_description" />
+            <End Role="meeting" EntitySet="Meeting" />
+            <End Role="meetings_description" EntitySet="description_Meetings" />
           </AssociationSet>
           <AssociationSet Name="country_reportscountry_reports_title" Association="InformeaCacheModel.country_reportscountry_reports_title">
-            <End Role="country_reports" EntitySet="country_reports" />
-            <End Role="country_reports_title" EntitySet="country_reports_title" />
+            <End Role="country_reports" EntitySet="CountryReports" />
+            <End Role="country_reports_title" EntitySet="title_CountryReports" />
           </AssociationSet>
           <AssociationSet Name="sitesites_name" Association="InformeaCacheModel.sitesites_name">
-            <End Role="site" EntitySet="sites" />
-            <End Role="sites_name" EntitySet="sites_name" />
+            <End Role="site" EntitySet="Sites" />
+            <End Role="sites_name" EntitySet="name_Sites" />
           </AssociationSet>
         </EntityContainer>
         <Association Name="contactcontacts_treaties">
@@ -457,7 +456,7 @@ warning 6002: The table/view 'InformeaCache.dbo.sites_name' does not have a prim
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="InformeaCacheModelStoreContainer" CdmEntityContainer="InformeaEntities">
-          <EntitySetMapping Name="contacts">
+          <EntitySetMapping Name="Contact">
             <EntityTypeMapping TypeName="InformeaCacheModel.contact">
               <MappingFragment StoreEntitySet="contacts">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -477,7 +476,7 @@ warning 6002: The table/view 'InformeaCache.dbo.sites_name' does not have a prim
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="contacts_treaties">
+          <EntitySetMapping Name="treaties_Contacts">
             <EntityTypeMapping TypeName="InformeaCacheModel.contacts_treaties">
               <MappingFragment StoreEntitySet="contacts_treaties">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -486,7 +485,7 @@ warning 6002: The table/view 'InformeaCache.dbo.sites_name' does not have a prim
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="country_reports">
+          <EntitySetMapping Name="CountryReports">
             <EntityTypeMapping TypeName="InformeaCacheModel.country_reports">
               <MappingFragment StoreEntitySet="country_reports">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -498,7 +497,7 @@ warning 6002: The table/view 'InformeaCache.dbo.sites_name' does not have a prim
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="country_reports_title">
+          <EntitySetMapping Name="title_CountryReports">
             <EntityTypeMapping TypeName="InformeaCacheModel.country_reports_title">
               <MappingFragment StoreEntitySet="country_reports_title">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -508,7 +507,7 @@ warning 6002: The table/view 'InformeaCache.dbo.sites_name' does not have a prim
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="meetings">
+          <EntitySetMapping Name="Meeting">
             <EntityTypeMapping TypeName="InformeaCacheModel.meeting">
               <MappingFragment StoreEntitySet="meetings">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -532,7 +531,7 @@ warning 6002: The table/view 'InformeaCache.dbo.sites_name' does not have a prim
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="meetings_description">
+          <EntitySetMapping Name="description_Meetings">
             <EntityTypeMapping TypeName="InformeaCacheModel.meetings_description">
               <MappingFragment StoreEntitySet="meetings_description">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -542,7 +541,7 @@ warning 6002: The table/view 'InformeaCache.dbo.sites_name' does not have a prim
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="meetings_title">
+          <EntitySetMapping Name="title_Meetings">
             <EntityTypeMapping TypeName="InformeaCacheModel.meetings_title">
               <MappingFragment StoreEntitySet="meetings_title">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -552,13 +551,14 @@ warning 6002: The table/view 'InformeaCache.dbo.sites_name' does not have a prim
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sites">
+          <EntitySetMapping Name="Sites">
             <EntityTypeMapping TypeName="InformeaCacheModel.site">
               <MappingFragment StoreEntitySet="sites">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="type" ColumnName="type" />
                 <ScalarProperty Name="country" ColumnName="country" />
                 <ScalarProperty Name="treaty" ColumnName="treaty" />
+                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="url" ColumnName="url" />
                 <ScalarProperty Name="latitude" ColumnName="latitude" />
                 <ScalarProperty Name="longitude" ColumnName="longitude" />
@@ -566,7 +566,7 @@ warning 6002: The table/view 'InformeaCache.dbo.sites_name' does not have a prim
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sites_name">
+          <EntitySetMapping Name="name_Sites">
             <EntityTypeMapping TypeName="InformeaCacheModel.sites_name">
               <MappingFragment StoreEntitySet="sites_name">
                 <ScalarProperty Name="id" ColumnName="id" />

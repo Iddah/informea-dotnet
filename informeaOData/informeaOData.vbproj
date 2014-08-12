@@ -114,11 +114,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="informea.svc" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="contact.vb">
+      <DependentUpon>InformeaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="contacts_treaties.vb">
+      <DependentUpon>InformeaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="country_reports.vb">
+      <DependentUpon>InformeaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="country_reports_title.vb">
+      <DependentUpon>InformeaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="informea.svc.vb">
       <DependentUpon>informea.svc</DependentUpon>
     </Compile>
@@ -135,6 +145,15 @@
     <Compile Include="InformeaModel.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>InformeaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="meeting.vb">
+      <DependentUpon>InformeaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="meetings_description.vb">
+      <DependentUpon>InformeaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="meetings_title.vb">
       <DependentUpon>InformeaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -155,6 +174,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="site.vb">
+      <DependentUpon>InformeaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sites_name.vb">
+      <DependentUpon>InformeaModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
