@@ -21,6 +21,6 @@ Partial Public Class site
     Public Property longitude As Nullable(Of Double)
     Public Property updated As Nullable(Of Date)
 
-    Public Overridable Property site_name As ICollection(Of sites_name) = New HashSet(Of sites_name)
+    Public Overridable Property value As ICollection(Of sites_name) = New HashSet(Of sites_name)
 
 End Class

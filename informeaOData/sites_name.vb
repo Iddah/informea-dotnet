@@ -14,6 +14,6 @@ Partial Public Class sites_name
     Public Property id As String
     Public Property site_id As Decimal
     Public Property language As String
-    Public Property name As String
+    Public Property value As String
 
 End Class

@@ -13,6 +13,6 @@ Imports System.Collections.Generic
 Partial Public Class contacts_treaties
     Public Property id As String
     Public Property contact_id As Decimal
-    Public Property treaty As String
+    Public Property treaties As String
 
 End Class

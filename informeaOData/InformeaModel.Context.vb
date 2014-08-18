@@ -22,11 +22,11 @@ Partial Public Class InformeaEntities
         Throw New UnintentionalCodeFirstException()
     End Sub
 
-    Public Overridable Property Contact() As DbSet(Of contact)
+    Public Overridable Property Contacts() As DbSet(Of contact)
     Public Overridable Property treaties_Contacts() As DbSet(Of contacts_treaties)
     Public Overridable Property CountryReports() As DbSet(Of country_reports)
     Public Overridable Property title_CountryReports() As DbSet(Of country_reports_title)
-    Public Overridable Property Meeting() As DbSet(Of meeting)
+    Public Overridable Property Meetings() As DbSet(Of meeting)
     Public Overridable Property description_Meetings() As DbSet(Of meetings_description)
     Public Overridable Property title_Meetings() As DbSet(Of meetings_title)
     Public Overridable Property Sites() As DbSet(Of site)

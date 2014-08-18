@@ -18,6 +18,6 @@ Partial Public Class country_reports
     Public Property url As String
     Public Property updated As Nullable(Of Date)
 
-    Public Overridable Property report_title As ICollection(Of country_reports_title) = New HashSet(Of country_reports_title)
+    Public Overridable Property title As ICollection(Of country_reports_title) = New HashSet(Of country_reports_title)
 
 End Class

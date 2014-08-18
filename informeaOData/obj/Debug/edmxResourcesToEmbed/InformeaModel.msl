@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="InformeaCacheModelStoreContainer" CdmEntityContainer="InformeaEntities">
-    <EntitySetMapping Name="Contact">
+    <EntitySetMapping Name="Contacts">
       <EntityTypeMapping TypeName="InformeaCacheModel.contact">
         <MappingFragment StoreEntitySet="contacts">
           <ScalarProperty Name="id" ColumnName="id" />
@@ -14,7 +14,7 @@
           <ScalarProperty Name="department" ColumnName="department" />
           <ScalarProperty Name="address" ColumnName="address" />
           <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="phone" ColumnName="phoneNumber" />
           <ScalarProperty Name="fax" ColumnName="fax" />
           <ScalarProperty Name="primary" ColumnName="primary" />
           <ScalarProperty Name="updated" ColumnName="updated" />
@@ -26,7 +26,7 @@
         <MappingFragment StoreEntitySet="contacts_treaties">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="contact_id" ColumnName="contact_id" />
-          <ScalarProperty Name="treaty" ColumnName="treaty" />
+          <ScalarProperty Name="treaties" ColumnName="treaty" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -48,11 +48,11 @@
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="country_report_id" ColumnName="country_report_id" />
           <ScalarProperty Name="language" ColumnName="language" />
-          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="value" ColumnName="title" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Meeting">
+    <EntitySetMapping Name="Meetings">
       <EntityTypeMapping TypeName="InformeaCacheModel.meeting">
         <MappingFragment StoreEntitySet="meetings">
           <ScalarProperty Name="id" ColumnName="id" />
@@ -92,7 +92,7 @@
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="meeting_id" ColumnName="meeting_id" />
           <ScalarProperty Name="language" ColumnName="language" />
-          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="value" ColumnName="title" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -117,7 +117,7 @@
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="site_id" ColumnName="site_id" />
           <ScalarProperty Name="language" ColumnName="language" />
-          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="value" ColumnName="name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

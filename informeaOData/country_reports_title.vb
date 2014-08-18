@@ -14,6 +14,6 @@ Partial Public Class country_reports_title
     Public Property id As String
     Public Property country_report_id As Decimal
     Public Property language As String
-    Public Property title As String
+    Public Property value As String
 
 End Class

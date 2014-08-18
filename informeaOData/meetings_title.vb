@@ -14,6 +14,6 @@ Partial Public Class meetings_title
     Public Property id As String
     Public Property meeting_id As Decimal
     Public Property language As String
-    Public Property title As String
+    Public Property value As String
 
 End Class

@@ -5,15 +5,15 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="9af72172560f4ca39c207731518d3156" Name="Diagram1">
-        <EntityTypeShape EntityType="InformeaCacheModel.contact" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="InformeaCacheModel.contacts_treaties" Width="1.5" PointX="2.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="InformeaCacheModel.country_reports" Width="1.75" PointX="0.5" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="InformeaCacheModel.country_reports_title" Width="1.875" PointX="2.625" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="InformeaCacheModel.meeting" Width="1.5" PointX="4.875" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="InformeaCacheModel.meetings_description" Width="2.125" PointX="6.875" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="InformeaCacheModel.meetings_title" Width="1.5" PointX="6.875" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="InformeaCacheModel.site" Width="1.5" PointX="4.875" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="InformeaCacheModel.sites_name" Width="1.5" PointX="7" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InformeaCacheModel.contact" Width="1.5" PointX="0.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InformeaCacheModel.contacts_treaties" Width="1.5" PointX="2.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InformeaCacheModel.country_reports" Width="1.75" PointX="0.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InformeaCacheModel.country_reports_title" Width="1.875" PointX="2.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="InformeaCacheModel.meeting" Width="1.5" PointX="5.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InformeaCacheModel.meetings_description" Width="2.125" PointX="7.5" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="InformeaCacheModel.meetings_title" Width="1.5" PointX="7.375" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InformeaCacheModel.site" Width="1.5" PointX="8" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InformeaCacheModel.sites_name" Width="1.5" PointX="10" PointY="5" IsExpanded="true" />
         <AssociationConnector Association="InformeaCacheModel.contactcontacts_treaties" />
         <AssociationConnector Association="InformeaCacheModel.meetingmeetings_title" />
         <AssociationConnector Association="InformeaCacheModel.meetingmeetings_description" />

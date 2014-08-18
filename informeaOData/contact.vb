@@ -21,7 +21,7 @@ Partial Public Class contact
     Public Property department As String
     Public Property address As String
     Public Property email As String
-    Public Property phoneNumber As String
+    Public Property phone As String
     Public Property fax As String
     Public Property primary As Byte
     Public Property updated As Nullable(Of Date)

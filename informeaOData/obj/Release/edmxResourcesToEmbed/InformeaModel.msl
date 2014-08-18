@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="InformeaCacheModelStoreContainer" CdmEntityContainer="InformeaEntities">
-    <EntitySetMapping Name="contacts">
+    <EntitySetMapping Name="Contacts">
       <EntityTypeMapping TypeName="InformeaCacheModel.contact">
         <MappingFragment StoreEntitySet="contacts">
           <ScalarProperty Name="id" ColumnName="id" />
@@ -14,23 +14,23 @@
           <ScalarProperty Name="department" ColumnName="department" />
           <ScalarProperty Name="address" ColumnName="address" />
           <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="phone" ColumnName="phoneNumber" />
           <ScalarProperty Name="fax" ColumnName="fax" />
           <ScalarProperty Name="primary" ColumnName="primary" />
           <ScalarProperty Name="updated" ColumnName="updated" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="contacts_treaties">
+    <EntitySetMapping Name="treaties_Contacts">
       <EntityTypeMapping TypeName="InformeaCacheModel.contacts_treaties">
         <MappingFragment StoreEntitySet="contacts_treaties">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="contact_id" ColumnName="contact_id" />
-          <ScalarProperty Name="treaty" ColumnName="treaty" />
+          <ScalarProperty Name="treaties" ColumnName="treaty" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="country_reports">
+    <EntitySetMapping Name="CountryReports">
       <EntityTypeMapping TypeName="InformeaCacheModel.country_reports">
         <MappingFragment StoreEntitySet="country_reports">
           <ScalarProperty Name="id" ColumnName="id" />
@@ -42,17 +42,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="country_reports_title">
+    <EntitySetMapping Name="title_CountryReports">
       <EntityTypeMapping TypeName="InformeaCacheModel.country_reports_title">
         <MappingFragment StoreEntitySet="country_reports_title">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="country_report_id" ColumnName="country_report_id" />
           <ScalarProperty Name="language" ColumnName="language" />
-          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="value" ColumnName="title" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="meetings">
+    <EntitySetMapping Name="Meetings">
       <EntityTypeMapping TypeName="InformeaCacheModel.meeting">
         <MappingFragment StoreEntitySet="meetings">
           <ScalarProperty Name="id" ColumnName="id" />
@@ -76,7 +76,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="meetings_description">
+    <EntitySetMapping Name="description_Meetings">
       <EntityTypeMapping TypeName="InformeaCacheModel.meetings_description">
         <MappingFragment StoreEntitySet="meetings_description">
           <ScalarProperty Name="id" ColumnName="id" />
@@ -86,7 +86,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="meetings_title">
+    <EntitySetMapping Name="title_Meetings">
       <EntityTypeMapping TypeName="InformeaCacheModel.meetings_title">
         <MappingFragment StoreEntitySet="meetings_title">
           <ScalarProperty Name="id" ColumnName="id" />
@@ -96,7 +96,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="sites">
+    <EntitySetMapping Name="Sites">
       <EntityTypeMapping TypeName="InformeaCacheModel.site">
         <MappingFragment StoreEntitySet="sites">
           <ScalarProperty Name="id" ColumnName="id" />
@@ -111,13 +111,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="sites_name">
+    <EntitySetMapping Name="name_Sites">
       <EntityTypeMapping TypeName="InformeaCacheModel.sites_name">
         <MappingFragment StoreEntitySet="sites_name">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="site_id" ColumnName="site_id" />
           <ScalarProperty Name="language" ColumnName="language" />
-          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="value" ColumnName="name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
